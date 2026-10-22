@@ -37,6 +37,25 @@ input {
     border: 1px solid #cbd5e1;
 }
 
+input[type="file"] {
+    border: 2px dashed #94a3b8;
+    background-color: #e2e8f0;
+    padding: 25px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+select {
+    width: 60px;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    text-align: center;
+    cursor: pointer;
+}
+
 button {
     border-radius: 9px;
     background-color: #e2e8f0;
@@ -58,4 +77,30 @@ h2{
     color: #2c3e50;
     font-size: 1.5em;
     font-style: italic;
+}
+
+.extra-bill {
+    display: none;
+}
+
+fieldset:has(option[value="2"]:checked) .bill-2 {
+    display: block;
+}
+
+fieldset:has(option[value="3"]:checked) .bill-2,
+fieldset:has(option[value="3"]:checked) .bill-3 {
+    display: block;
+}
+
+fieldset:has(option[value="4"]:checked) .bill-2,
+fieldset:has(option[value="4"]:checked) .bill-3,
+fieldset:has(option[value="4"]:checked) .bill-4 {
+    display: block;
+}
+
+fieldset:has(option[value="5"]:checked) .bill-2,
+fieldset:has(option[value="5"]:checked) .bill-3,
+fieldset:has(option[value="5"]:checked) .bill-4,
+fieldset:has(option[value="5"]:checked) .bill-5 {
+    display: block;
 }
