@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Bills - Casablanca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Casablanca</h1>
+
+    <form action="/submit_bills" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Start off your collection <br> with some bills</legend>
+
+            
+            <label for="billCount">Number of bills:</label><br>
+            <select id="billCount" name="billCount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br><br>
+            
+            <div class="bill-1">
+    <h3>Bill #1</h3>
+    <input type="text" name="country1" placeholder="Country" required><br><br>
+    <input type="file" name="photo1" accept="image/*" required><br><br>
+</div>
+
+<div class="extra-bill bill-2">
+    <h3>Bill #2</h3>
+    <input type="text" name="country2" placeholder="Country"><br><br>
+    <input type="file" name="photo2" accept="image/*"><br><br>
+</div>
+
+<div class="extra-bill bill-3">
+    <h3>Bill #3</h3>
+    <input type="text" name="country3" placeholder="Country"><br><br>
+    <input type="file" name="photo3" accept="image/*"><br><br>
+</div>
+
+<div class="extra-bill bill-4">
+    <h3>Bill #4</h3>
+    <input type="text" name="country4" placeholder="Country"><br><br>
+    <input type="file" name="photo4" accept="image/*"><br><br>
+</div>
+
+<div class="extra-bill bill-5">
+    <h3>Bill #5</h3>
+    <input type="text" name="country5" placeholder="Country"><br><br>
+    <input type="file" name="photo5" accept="image/*"><br><br>
+</div>
+            
+            <button type="submit">Add Bill</button>
+        </fieldset>
+    </form>
+
+    <footer>
+        <p>Very Cool Footer</p>
+    </footer>
+</body>
+
+</html>
