@@ -1,82 +1,193 @@
+* {
+    box-sizing: border-box;
+}
 
-
-body{
+body {
     background-color: #f4f6f8;
-    margin: auto;
+    font-family: Arial, sans-serif;
+    margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
-    color: #333333;
+    color: #1e293b;
 }
 
-fieldset {
+main {
+    width: 92%;
+    max-width: 480px;
+    margin: 0 auto 40px auto;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 30px 0 15px 0;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.25rem;
+    margin: 20px 0 10px 0;
+}
+
+/* 1. The form now acts as the white card, wrapping everything perfectly */
+form {
     background-color: #ffffff;
-    border: none;
     border-radius: 16px;
-    padding: 30px;
-    width: 320px;
-    margin: auto;
+    padding: 30px 25px;
+    width: 100%;
+    margin: 0 auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    text-align: left;
 }
 
+/* 2. The fieldset becomes invisible so the legend drops inside the form's padding */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+/* 3. Titles now sit nicely inside the white box */
 legend {
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #2c3e50;
-    padding-top: 50px;
-    margin-bottom: 20px;
+    padding: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
 }
 
-input {
-    width: 90%;
-    border-radius: 8px;
-    padding: 8px 12px;
-    margin-top: 5px;
+.sub-group {
     background-color: #f8fafc;
     border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.sub-group legend {
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 8px;
+    width: auto;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 4px;
+}
+
+.choice-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: normal;
+    margin-top: 8px;
+    min-height: 44px;
+    cursor: pointer;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: #475569;
+    margin: 0 0 6px 0;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background-color: #f8fafc;
+    border: 1px solid #94a3b8;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    min-height: 22px;
+    margin: 0;
+}
+
+input[type="range"] {
+    padding: 0;
+    cursor: pointer;
 }
 
 input[type="file"] {
-    border: 2px dashed #94a3b8;
+    border: 2px dashed #64748b;
     background-color: #e2e8f0;
-    padding: 25px 10px;
-    border-radius: 8px;
+    padding: 20px 10px;
     cursor: pointer;
 }
 
 select {
-    width: 60px;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    background-color: #f8fafc;
-    text-align: center;
+    width: 100px;
     cursor: pointer;
 }
 
 button {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 25px;
     border-radius: 9px;
-    background-color: #e2e8f0;
-    padding: 5px 10px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 16px;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #c1cad4;
-}
-h1{
-    color: #2c3e50;
-    font-size: 2em;
-    margin-top: 50px;
+    background-color: #1a252f;
 }
 
-h2{
-    color: #2c3e50;
-    font-size: 1.5em;
-    font-style: italic;
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.error-msg {
+    display: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #dc2626;
+}
+
+input:user-invalid {
+    border: 2px solid #dc2626;
+    background-color: #fef2f2;
+}
+
+input:user-invalid + .error-msg {
+    display: block;
+}
+
+input:user-valid {
+    border: 2px solid #16a34a;
+}
+
+.bill-card {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
 .extra-bill {
@@ -104,36 +215,39 @@ fieldset:has(option[value="5"]:checked) .bill-4,
 fieldset:has(option[value="5"]:checked) .bill-5 {
     display: block;
 }
-.hero {
-    width: 480px;
-    max-width: 90%;
-    padding: 50px 35px;
-    margin-top: 120px;
-}
 
-.hero h1 {
-    font-size: 2.2rem;
-    color: #2c3e50;
-    margin-bottom: 5px;
+.hero {
+    text-align: center;
+    margin-top: 15px;
 }
 
 .hero h2 {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #475569;
     font-style: italic;
     font-weight: normal;
+    border: none;
     margin-top: 0;
-    margin-bottom: 25px;
 }
 
 .hero p {
-    color: #475569;
+    color: #334155;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-.hero button {
-    width: 220px;
-    padding: 12px;
-    font-size: 1.05rem;
+footer {
+    margin-top: auto;
+    padding: 20px;
+    color: #64748b;
+}
+
+@media (min-width: 600px) {
+    form {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
 }
